@@ -1,11 +1,22 @@
 // Libraries
-import React from "react";
+import React, {useContext} from "react";
+
+// App Context
+import {AppContext} from "../contexts/AppContext";
 
 // Component
 const UserProfile = () => {
+  // Get Notes & Its Methods
+  const state = useContext(AppContext);
+
+  let x = {
+    avatar: "new.jpg",
+    username: "salahineo",
+    theme: "dark"
+  };
   return (
     <div>
-      User Profile
+      <button onClick={() => state.updateProfile(x)}>Update</button>
     </div>
   );
 };
