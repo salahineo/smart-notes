@@ -18,7 +18,7 @@ class AppContextProvider extends React.Component {
       {
         id: "0",
         name: "Not Categorized",
-        color: "#a7a7a7"
+        color: "#dedede"
       }
     ],
     notes: []
@@ -86,7 +86,7 @@ class AppContextProvider extends React.Component {
           {
             id: "0",
             name: "Not Categorized",
-            color: "#a7a7a7"
+            color: "#dedede"
           }
         ]
       });

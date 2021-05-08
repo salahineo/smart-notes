@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme) => {
         backgroundColor: "#f9f9f9",
         width: "100%",
         padding: 15,
-        minHeight: "calc(100vh - 65px)"
+        minHeight: "calc(100vh - 30px)"
       },
       drawer: {
         width: drawerWidth

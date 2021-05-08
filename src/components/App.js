@@ -6,9 +6,11 @@ import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import ReadNotes from "../pages/ReadNotes";
 import CreateNote from "../pages/CreateNote";
 import UpdateNote from "../pages/UpdateNote";
-import UserProfile from "../pages/UserProfile";
 import Categories from "../pages/Categories";
+import CreateCategory from "../pages/CreateCategory";
+import UpdateCategory from "../pages/UpdateCategory";
 import FavouriteNotes from "../pages/FavouriteNotes";
+import UserProfile from "../pages/UserProfile";
 
 // Components
 import Layout from "./Layout";
@@ -28,8 +30,8 @@ const App = () => {
             <Route path="/update-note/:note" component={UpdateNote} />
             <Route path="/favourites" component={FavouriteNotes} />
             <Route path="/categories" component={Categories} />
-            <Route path="/add-category" component={Categories} />
-            <Route path="/update-category" component={Categories} />
+            <Route path="/add-category" component={CreateCategory} />
+            <Route path="/update-category" component={UpdateCategory} />
             <Route path="/profile" component={UserProfile} />
           </Switch>
         </Layout>
