@@ -10,11 +10,17 @@ class AppContextProvider extends React.Component {
   // Initial App State
   initialState = {
     profile: {
-      avatar: "guest.jpg",
+      avatar: "/images/guest.jpg",
       username: "Guest",
       theme: "light"
     },
-    categories: [],
+    categories: [
+      {
+        id: "0",
+        name: "Not Categorized",
+        color: "#a7a7a7"
+      }
+    ],
     notes: []
   };
 
@@ -68,10 +74,23 @@ class AppContextProvider extends React.Component {
 
   // Clear All Method
   clearAll = async (property) => {
-    // Set Property To Initial Value
-    await this.setState({
-      [property]: []
-    });
+    if (property === "notes") {
+      // Set Notes To Initial Value
+      await this.setState({
+        notes: []
+      });
+    } else {
+      // Set Categories To Initial Value
+      await this.setState({
+        categories: [
+          {
+            id: "0",
+            name: "Not Categorized",
+            color: "#a7a7a7"
+          }
+        ]
+      });
+    }
     // Save To Localstorage
     setItem("SmartNotes", JSON.stringify(this.state));
   };
@@ -102,7 +121,7 @@ class AppContextProvider extends React.Component {
       </AppContext.Provider>
     );
   }
-};
+}
 
 // Export App Context Provider
 export default AppContextProvider;

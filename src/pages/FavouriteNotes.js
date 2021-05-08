@@ -1,10 +1,10 @@
 // Libraries
-import React, {useContext} from "react";
+import React, {useContext, useState} from "react";
 import Masonry from "react-masonry-css";
 
 // Components
 import {makeStyles} from "@material-ui/core/styles";
-import {Container} from "@material-ui/core";
+import {Container, Typography} from "@material-ui/core";
 import NoteCard from "../components/NoteCard";
 
 // App Context
@@ -31,6 +31,12 @@ const useStyle = makeStyles({
       borderRadius: 4,
       marginTop: 5
     }
+  },
+  EmptyMessage: {
+    textAlign: "center",
+    color: "#c1c1c1",
+    marginTop: "calc((100vh - 65px) / 2)",
+    transform: "translateY(-50%)"
   }
 });
 
@@ -38,6 +44,9 @@ const useStyle = makeStyles({
 const ReadNotes = () => {
   // Classes Object
   const classes = useStyle();
+
+  // Favourites State
+  const [favourites, setFavourites] = useState(false);
 
   // Get State
   const state = useContext(AppContext);
@@ -58,15 +67,34 @@ const ReadNotes = () => {
         columnClassName={classes.masonry_grid_column}
       >
         {
+          // Loop Through All Notes
           state.notes.map(note => {
-            return (
-              <div key={note.id}>
-                <NoteCard note={note} />
-              </div>
-            );
+            // Check If Current Note Is Favourite Note
+            if (note.favourite === true) {
+              // Check For Favourites
+              if (favourites === false) {
+                // Change Favourites State
+                setFavourites(true);
+              }
+              // Return This Note
+              return (
+                <div key={note.id}>
+                  <NoteCard note={note} />
+                </div>
+              );
+            } else {
+              // Return Nothing
+              return null;
+            }
           })
         }
       </Masonry>
+      {
+        // Check If Favourites Still False, To Show Empty Message
+        favourites === false ? (<Typography variant="h5"
+                                            component="h2"
+                                            className={classes.EmptyMessage}>You Don't Have Favourite Notes</Typography>) : null
+      }
     </Container>
   );
 };

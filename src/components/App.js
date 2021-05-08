@@ -8,6 +8,10 @@ import CreateNote from "../pages/CreateNote";
 import UpdateNote from "../pages/UpdateNote";
 import UserProfile from "../pages/UserProfile";
 import Categories from "../pages/Categories";
+import FavouriteNotes from "../pages/FavouriteNotes";
+
+// Components
+import Layout from "./Layout";
 
 // App Contexts
 import AppContextProvider from "../contexts/AppContext";
@@ -16,15 +20,20 @@ import AppContextProvider from "../contexts/AppContext";
 const App = () => {
   return (
     <Router>
-      <Switch>
-        <AppContextProvider>
-          <Route exact path="/" component={ReadNotes} />
-          <Route path="/create" component={CreateNote} />
-          <Route path="/update" component={UpdateNote} />
-          <Route path="/categories" component={Categories} />
-          <Route path="/profile" component={UserProfile} />
-        </AppContextProvider>
-      </Switch>
+      <AppContextProvider>
+        <Layout>
+          <Switch>
+            <Route exact path="/" component={ReadNotes} />
+            <Route path="/add-note" component={CreateNote} />
+            <Route path="/update-note/:note" component={UpdateNote} />
+            <Route path="/favourites" component={FavouriteNotes} />
+            <Route path="/categories" component={Categories} />
+            <Route path="/add-category" component={Categories} />
+            <Route path="/update-category" component={Categories} />
+            <Route path="/profile" component={UserProfile} />
+          </Switch>
+        </Layout>
+      </AppContextProvider>
     </Router>
   );
 };
