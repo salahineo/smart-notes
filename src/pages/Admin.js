@@ -80,7 +80,7 @@ const Admin = () => {
   const handleImport = async () => {
     // Trigger Dialogue To Get Data
     const {value: data} = await MySwal.fire({
-      title: "Export All Data",
+      title: "Import All Data",
       text: "Paste data which you have exported before, to restore it. If application breakdown (due to note correct data) , route to '/admin', then restore every thing",
       input: "text",
       inputPlaceholder: "Paste data here",
@@ -94,10 +94,17 @@ const Admin = () => {
         }
       }
     });
+
     // Check If Data Pasted
     if (data) {
       // Restore Data
       await state.importData(data);
+      // Success Dialogue
+      await MySwal.fire(
+        "Restored!",
+        "Data should be restored now.",
+        "success"
+      );
     }
   };
 
@@ -112,13 +119,13 @@ const Admin = () => {
       confirmButtonColor: "#dd3333",
       cancelButtonColor: "#3085d6",
       confirmButtonText: "Yes, Restore"
-    }).then((result) => {
+    }).then(async (result) => {
       if (result.isConfirmed) {
         // Restore Data
-        state.restore();
+        await state.restore();
         // Success Dialogue
-        MySwal.fire(
-          "Deleted!",
+        await MySwal.fire(
+          "Restored!",
           `Application data restored`,
           "success"
         );

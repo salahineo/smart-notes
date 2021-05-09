@@ -86,7 +86,7 @@ class AppContextProvider extends React.Component {
           {
             id: "0",
             name: "Not Categorized",
-            color: this.state.profile.theme === 'light' ? "#dedede" : "#323232"
+            color: this.state.profile.theme === "light" ? "#dedede" : "#323232"
           }
         ]
       });
@@ -111,6 +111,19 @@ class AppContextProvider extends React.Component {
     await this.setState({
       profile: profile
     });
+    // Check To Add Alert Dark Theme
+    if (profile.theme === "dark") {
+      // Create Link
+      let link = document.createElement("link");
+      // Add Link Attributes
+      link.setAttribute("id", "SweetAlertDarkStyle");
+      link.setAttribute("rel", "stylesheet");
+      link.setAttribute("href", "/dark.min.css");
+      // Append Link To Head Element
+      document.documentElement.firstChild.appendChild(link);
+    } else {
+      document.getElementById("SweetAlertDarkStyle").remove();
+    }
     // Save To Localstorage
     setItem("SmartNotes", JSON.stringify(this.state));
   };
@@ -130,6 +143,10 @@ class AppContextProvider extends React.Component {
   restore = async () => {
     // Assign Initial State To State
     await this.setState(this.initialState);
+    // Check To Add Alert Dark Theme
+    if (document.getElementById("SweetAlertDarkStyle") !== null) {
+      document.getElementById("SweetAlertDarkStyle").remove();
+    }
     // Save To Localstorage
     setItem("SmartNotes", JSON.stringify(this.state));
   };

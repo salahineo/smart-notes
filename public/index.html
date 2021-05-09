@@ -11,15 +11,7 @@
   <link rel="stylesheet" href="fontawesome/fontawesome.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
 
-  <script>
-    const state = JSON.parse(localStorage.getItem('SmartNotes'));
-    if(state.profile.theme === 'dark') {
-      let x = document.createElement('link')
-      x.setAttribute('rel', 'stylesheet')
-      x.setAttribute('href', '/dark.min.css')
-      document.documentElement.firstChild.appendChild(x)
-    }
-  </script>
+
 </head>
 <body>
   <noscript>You need to enable JavaScript to run this app.</noscript>

@@ -99,13 +99,13 @@ const Layout = (props) => {
           maxHeight: 65,
           zIndex: 1000,
           backgroundColor: state.profile.theme === "light" ? "#ffffff" : "#424242",
-          color: state.profile.theme === "light" ? "#222222" : "#fff",
+          color: state.profile.theme === "light" ? "#222222" : "#ffffff",
           borderBottom: state.profile.theme === "light" ? "1px solid rgba(0, 0, 0, 0.12)" : "1px solid rgba(255, 255, 255, 0.12)"
         },
         logoLink: {
           display: "flex",
           textDecoration: "none",
-          color: state.profile.theme === "light" ? "#222222" : "#fff",
+          color: state.profile.theme === "light" ? "#222222" : "#ffffff"
         },
         logo: {
           flexGrow: 1,
@@ -117,7 +117,8 @@ const Layout = (props) => {
         },
         logoAvatar: {
           width: 30,
-          height: 30
+          height: 30,
+          alignSelf: "flex-end"
         },
         toolBar: theme.mixins.toolbar,
         avatar: {
