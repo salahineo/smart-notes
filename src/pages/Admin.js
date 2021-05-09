@@ -81,7 +81,7 @@ const Admin = () => {
     // Trigger Dialogue To Get Data
     const {value: data} = await MySwal.fire({
       title: "Import All Data",
-      text: "Paste data which you have exported before, to restore it. If application breakdown (due to note correct data) , route to '/admin', then restore every thing",
+      text: "Paste data which you have exported before, to restore it. If application breakdown (due to not correct data) , route to '/admin', then restore every thing",
       input: "text",
       inputPlaceholder: "Paste data here",
       inputAttributes: {
