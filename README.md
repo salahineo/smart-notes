@@ -1,70 +1,80 @@
-# Getting Started with Create React App
+<h1 align="center">Smart Notes</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+<img src="Mockup.jpg" alt="Responsive Mockup">
+</p>
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+- [Goal](#goal)
+- [Benefits](#benefits)
+- [Demo](#demo)
+- [Installation](#installation)
+- [Technologies](#technologies)
+- [Contact](#contact)
+- [Copyright and license](#copyright-and-license)
 
-### `yarn start`
+### Goal
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This is smart notes application. I coded this project to practice on my knowledge of HTML, CSS, JavaScript, ReactJS,
+Context API and Material-UI in a real project.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Benefits
 
-### `yarn test`
+Here are some ideas to benefit from this project:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Take this project as a task and try to make it, and if you could not do a specific section, see how I make it in the
+  source code (use comments to reach this section).
+- Extract a code of a specific section and use it in your project.
+- Review source code to see how other people code their projects.
+- Edit on this project after studying its code well, to know how to work in pair-programming with other people
+- Upgrade this project, and add your own sections or pages
 
-### `yarn build`
+### Demo
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Here is the demo of this [application](https://salahineo.github.io/smart-notes/)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Installation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Here are the guidelines to run this project on your localhost (you should install node.js on your machine at first):
 
-### `yarn eject`
+1. Clone (Download) this repo on your machine
+2. Open terminal in repo directory
+3. Run `npm install` to install project dependencies
+4. Run `npm start` to start this project on localhost
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+> You maybe asked to run this app in another port instead of port 3000, because there is already a process running on this port. Confirm this by hitting `y` key from keyboard.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Technologies
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- HTML
+- CSS
+- JavaScript
+- ReactJS
+- Context API
+- Material-UI
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+> This application is fully responsive
 
-## Learn More
+### Contact
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- [Github](https://github.com/salahineo) :octocat:
+- [LinkedIn](https://linkedin.com/in/salahineo) 💼
+- [Facebook](https://facebook.com/salahineo) 😎
+- [Twitter](https://twitter.com/salahineo) 🐤
+- [Website](https://salahineo.github.io/salahineo/) :globe_with_meridians:
+- <a href="mailto:salahineo.work@gmail.com">Email</a> :email:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Copyright and license
 
-### Code Splitting
+- **[GPLv3](https://www.gnu.org/licenses/gpl-3.0)**
+- **© 2021 | Mohamed Salah**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+**If you find my work good, consider giving it a :star: or fork-ing to show some :heart:. It helps me stay on track and
+be motivated.**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+> **Explore all of my projects from [Here](https://github.com/salahineo/Projects-Reference)**
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---

@@ -127,12 +127,12 @@ const Layout = (props) => {
         },
         appbarAvatar: {
           marginLeft: theme.spacing(2),
-          [theme.breakpoints.down("sm")]: {
+          [theme.breakpoints.down("xs")]: {
             display: "none"
           }
         },
         appbarUsername: {
-          [theme.breakpoints.down("sm")]: {
+          [theme.breakpoints.down("xs")]: {
             display: "none"
           }
         },
