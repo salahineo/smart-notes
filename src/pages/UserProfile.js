@@ -99,35 +99,35 @@ const UserProfile = () => {
   const avatars = [
     {
       id: 1,
-      src: "/images/guest.jpg"
+      src: "images/guest.jpg"
     },
     {
       id: 2,
-      src: "/images/mafia.jpg"
+      src: "images/mafia.jpg"
     },
     {
       id: 3,
-      src: "/images/boy_1.jpg"
+      src: "images/boy_1.jpg"
     },
     {
       id: 4,
-      src: "/images/boy_2.jpg"
+      src: "images/boy_2.jpg"
     },
     {
       id: 5,
-      src: "/images/boy_3.jpg"
+      src: "images/boy_3.jpg"
     },
     {
       id: 6,
-      src: "/images/girl_1.jpg"
+      src: "images/girl_1.jpg"
     },
     {
       id: 7,
-      src: "/images/girl_2.jpg"
+      src: "images/girl_2.jpg"
     },
     {
       id: 8,
-      src: "/images/girl_3.jpg"
+      src: "images/girl_3.jpg"
     },
 
   ];
