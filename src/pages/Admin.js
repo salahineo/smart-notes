@@ -19,52 +19,40 @@ import RestoreIcon from "@material-ui/icons/Restore";
 // Material UI Colors
 import red from "@material-ui/core/colors/red";
 
-// Custom CSS Classes Style
-const useStyles = makeStyles(theme => ({
-    icon: {
-      transform: "rotate(180deg)"
-    },
-    alertContainer: {
-      width: "100%",
-      "& > * + *": {
-        marginTop: theme.spacing(2)
-      }
-    },
-    alert: {
-      maxWidth: "300px",
-      position: "absolute",
-      top: 75,
-      right: 20
-    },
-    section: {
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "flex-start",
-      marginBottom: 20,
-      "&:nth-of-type(2)": {
-        marginTop: 20
-      }
-    },
-    button: {
-      margin: "20px 0 0",
-      flexGrow: 0
-    },
-    dangerButton: {
-      margin: "20px 0 0",
-      backgroundColor: red[500],
-      color: "#ffffff",
-      "&:hover": {
-        backgroundColor: red[600]
-      }
-    }
-  }
-));
-
 
 // Component
 const Admin = () => {
   // Get State
   const state = useContext(AppContext);
+
+  // Custom CSS Classes Style
+  const useStyles = makeStyles(theme => ({
+      icon: {
+        transform: "rotate(180deg)"
+      },
+      section: {
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "flex-start",
+        marginBottom: 20,
+        "&:nth-of-type(2)": {
+          marginTop: 20
+        }
+      },
+      button: {
+        margin: "20px 0 0",
+        flexGrow: 0
+      },
+      dangerButton: {
+        margin: "20px 0 0",
+        backgroundColor: state.profile.theme === "light" ? red[500] : red[400],
+        color: "#ffffff",
+        "&:hover": {
+          backgroundColor: state.profile.theme === "light" ? red[600] : red[500]
+        }
+      }
+    }
+  ));
 
   // Classes Object
   const classes = useStyles();

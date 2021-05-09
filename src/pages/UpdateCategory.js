@@ -15,52 +15,6 @@ import {Alert} from "@material-ui/lab";
 import KeyboardArrowRightIcon from "@material-ui/icons/KeyboardArrowRight";
 import CloseIcon from "@material-ui/icons/Close";
 
-// Custom CSS Classes Style
-const useStyles = makeStyles(theme => ({
-    field: {
-      marginTop: 20,
-      marginBottom: 20,
-      display: "block"
-    },
-    select: {
-      marginTop: 20,
-      marginBottom: 20
-    },
-    alertContainer: {
-      width: "100%",
-      "& > * + *": {
-        marginTop: theme.spacing(2)
-      }
-    },
-    alert: {
-      maxWidth: "300px",
-      position: "absolute",
-      top: 75,
-      right: 20
-    },
-    colorPickerContainer: {
-      marginTop: 20,
-      "& button": {
-        width: 60,
-        height: 30
-      },
-      "& button div": {
-        width: 55,
-        height: 25
-      }
-    },
-    addButton: {
-      marginTop: 25
-    },
-    EmptyMessage: {
-      textAlign: "center",
-      color: "#c1c1c1",
-      marginTop: "calc((100vh - 65px) / 2)",
-      transform: "translateY(-50%)"
-    }
-  }
-));
-
 // Component
 const UpdateCategory = () => {
   // Get State
@@ -68,6 +22,52 @@ const UpdateCategory = () => {
 
   // Location Hook
   const location = useLocation();
+
+  // Custom CSS Classes Style
+  const useStyles = makeStyles(theme => ({
+      field: {
+        marginTop: 20,
+        marginBottom: 20,
+        display: "block"
+      },
+      select: {
+        marginTop: 20,
+        marginBottom: 20
+      },
+      alertContainer: {
+        width: "100%",
+        "& > * + *": {
+          marginTop: theme.spacing(2)
+        }
+      },
+      alert: {
+        maxWidth: "300px",
+        position: "absolute",
+        top: 75,
+        right: 20
+      },
+      colorPickerContainer: {
+        marginTop: 20,
+        "& button": {
+          width: 60,
+          height: 30
+        },
+        "& button div": {
+          width: 55,
+          height: 25
+        }
+      },
+      addButton: {
+        marginTop: 25
+      },
+      EmptyMessage: {
+        textAlign: "center",
+        color: state.profile.theme === 'light' ? "#c1c1c1" : "#606060",
+        marginTop: "calc((100vh - 65px) / 2)",
+        transform: "translateY(-50%)"
+      }
+    }
+  ));
 
   // Classes Object
   const classes = useStyles();

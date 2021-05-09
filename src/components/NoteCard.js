@@ -15,48 +15,6 @@ import {CheckLightOrDark} from "../helpers/CheckLightOrDark";
 // App Context
 import {AppContext} from "../contexts/AppContext";
 
-// Custom CSS Classes Style
-const useStyle = makeStyles({
-  avatarBackground: {
-    backgroundColor: "#3f51b5"
-  },
-  cardTitle: {
-    fontSize: 16,
-    display: "block"
-  },
-  CardBody: {
-    whiteSpace: "break-spaces",
-    wordBreak: `break-all`
-  },
-  MenuItemFavourite: {
-    transition: "0.15s",
-    "& > svg": {
-      marginRight: 10
-    },
-    "&:hover": {
-      color: "#3f51b5"
-    }
-  },
-  MenuItemEdit: {
-    transition: "0.15s",
-    "& > svg": {
-      marginRight: 10
-    },
-    "&:hover": {
-      color: "#ff7700"
-    }
-  },
-  MenuItemDelete: {
-    transition: "0.15s",
-    "& > svg": {
-      marginRight: 10
-    },
-    "&:hover": {
-      color: "#ff4e5e"
-    }
-  }
-});
-
 // Component
 const NoteCard = ({note}) => {
   // App State
@@ -64,6 +22,39 @@ const NoteCard = ({note}) => {
 
   // History Hooks
   const history = useHistory();
+
+  // Custom CSS Classes Style
+  const useStyle = makeStyles({
+    avatarBackground: {
+      backgroundColor: state.profile.theme === "light" ? "#3f51b5" : "#7f91ff"
+    },
+    cardTitle: {
+      fontSize: 16,
+      display: "block"
+    },
+    CardBody: {
+      whiteSpace: "break-spaces",
+      wordBreak: `break-all`
+    },
+    MenuItemEdit: {
+      transition: "0.15s",
+      "& > svg": {
+        marginRight: 10
+      },
+      "&:hover": {
+        color: state.profile.theme === "light" ? "#ff7700" : "#ff9940"
+      }
+    },
+    MenuItemDelete: {
+      transition: "0.15s",
+      "& > svg": {
+        marginRight: 10
+      },
+      "&:hover": {
+        color: state.profile.theme === "light" ? "#ff4e5e" : "#ff6775"
+      }
+    }
+  });
 
   // Classes Object
   const classes = useStyle();
@@ -78,12 +69,11 @@ const NoteCard = ({note}) => {
     // Check Current Note Category
     if (category.name === note.category) {
       // Assign Color To Variable
-      categoryBackground = category.color;
+      categoryBackground = category.name === 'Not Categorized' ? (state.profile.theme === 'light' ? '#dedede' : '#303030') : category.color;
     }
     // Return Nothing
     return null;
   });
-
   // Check For Background Color (Dark Or Light Color), To Determine Foreground Color
   let categoryColor = CheckLightOrDark(categoryBackground);
 
@@ -164,7 +154,7 @@ const NoteCard = ({note}) => {
               </IconButton>
               <IconButton
                 onClick={handleMenu}
-                color="inherit"
+                color="primary"
               >
                 <MoreVertOutlined />
               </IconButton>

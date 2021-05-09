@@ -15,61 +15,62 @@ import {Alert} from "@material-ui/lab";
 import KeyboardArrowRightIcon from "@material-ui/icons/KeyboardArrowRight";
 import CloseIcon from "@material-ui/icons/Close";
 
-// Custom CSS Classes Style
-const useStyles = makeStyles(theme => ({
-    field: {
-      marginTop: 20,
-      marginBottom: 20,
-      display: "block"
-    },
-    select: {
-      marginTop: 20,
-      marginBottom: 20
-    },
-    alertContainer: {
-      width: "100%",
-      "& > * + *": {
-        marginTop: theme.spacing(2)
-      }
-    },
-    alert: {
-      maxWidth: "300px",
-      position: "absolute",
-      top: 75,
-      right: 20
-    },
-    colorPickerContainer: {
-      marginTop: 20,
-      "& button": {
-        width: 60,
-        height: 30
-      },
-      "& button div": {
-        width: 55,
-        height: 25
-      }
-    },
-    addButton: {
-      marginTop: 25
-    }
-  }
-));
-
 // Component
 const CreateCategory = () => {
   // Get State
   const state = useContext(AppContext);
 
-  // Classes Object
-  const classes = useStyles();
-
   // Component Local State
-  const [color, setColor] = useState("#dedede");
+  const [color, setColor] = useState("#8a8a8a");
   const [category, setCategory] = useState("");
   const [categoryErrorState, setCategoryErrorState] = useState(false);
   const [openAlert, setOpenAlert] = useState(false);
   const [alertState, setAlertState] = useState("");
   const [alertMessage, setAlertMessage] = useState("");
+
+  // Custom CSS Classes Style
+  const useStyles = makeStyles(theme => ({
+      field: {
+        marginTop: 20,
+        marginBottom: 20,
+        display: "block"
+      },
+      select: {
+        marginTop: 20,
+        marginBottom: 20
+      },
+      alertContainer: {
+        width: "100%",
+        "& > * + *": {
+          marginTop: theme.spacing(2)
+        }
+      },
+      alert: {
+        maxWidth: "300px",
+        position: "absolute",
+        top: 75,
+        right: 20,
+        backgroundColor: state.profile.theme === 'dark' ? (alertState === 'success' ? '#495d49' : '#563a38') : ''
+      },
+      colorPickerContainer: {
+        marginTop: 20,
+        "& button": {
+          width: 60,
+          height: 30
+        },
+        "& button div": {
+          width: 55,
+          height: 25
+        }
+      },
+      addButton: {
+        marginTop: 25
+      }
+    }
+  ));
+
+  // Classes Object
+  const classes = useStyles();
 
   // Handle Submit Form Method
   const handleSubmit = (e) => {

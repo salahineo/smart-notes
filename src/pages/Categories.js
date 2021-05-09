@@ -21,62 +21,63 @@ import {Delete, Edit} from "@material-ui/icons";
 // App Context
 import {AppContext} from "../contexts/AppContext";
 
-// Custom CSS Classes Style
-const useStyles = makeStyles({
-  tableContainer: {
-    marginTop: 20
-  },
-  tableHead: {
-    backgroundColor: "#3f51b5",
-    "& > tr th": {
-      fontSize: 16,
-      color: "#ffffff"
-    }
-  },
-  categoryColorContainer: {
-    display: "inline-block",
-    padding: 2,
-    borderRadius: "50%"
-  },
-  categoryColor: {
-    width: 30,
-    height: 30,
-    display: "block",
-    borderRadius: "50%"
-  },
-  deleteHover: {
-    transition: "0.15s",
-    "&:hover": {
-      color: "#ff4e5e"
-    }
-  },
-  editHover: {
-    transition: "0.15s",
-    "&:hover": {
-      color: "#ff7700"
-    }
-  },
-  disabled: {
-    cursor: 'not-allowed !important'
-  },
-  note: {
-    margin: "30px auto 10px",
-    padding: "10px 12px",
-    backgroundColor: "#efefef",
-    borderLeft: "4px solid #3f51b5"
-  },
-  EmptyMessage: {
-    textAlign: "center",
-    color: "#c1c1c1",
-    marginTop: "calc((100vh - 65px) / 2)",
-    transform: "translateY(-50%)"
-  }
-});
 
 // Component
 const Categories = () => {
   // Get Notes & Its Methods
   const state = useContext(AppContext);
+
+  // Custom CSS Classes Style
+  const useStyles = makeStyles({
+    tableContainer: {
+      marginTop: 20
+    },
+    tableHead: {
+      backgroundColor: state.profile.theme === "light" ? "#3f51b5" : "#545454",
+      "& > tr th": {
+        fontSize: 16,
+        color: "#ffffff"
+      }
+    },
+    categoryColorContainer: {
+      display: "inline-block",
+      padding: 2,
+      borderRadius: "50%"
+    },
+    categoryColor: {
+      width: 30,
+      height: 30,
+      display: "block",
+      borderRadius: "50%"
+    },
+    deleteHover: {
+      transition: "0.15s",
+      "&:hover": {
+        color: state.profile.theme === "light" ? "#ff4e5e" : "#ff6775"
+      }
+    },
+    editHover: {
+      transition: "0.15s",
+      "&:hover": {
+        color: state.profile.theme === "light" ? "#ff7700" : "#ff9940"
+      }
+    },
+    disabled: {
+      cursor: 'not-allowed !important'
+    },
+    note: {
+      margin: "30px auto 10px",
+      padding: "10px 12px",
+      backgroundColor: state.profile.theme === "light" ? "#efefef" : "#424242",
+      borderLeft: state.profile.theme === "light" ? "4px solid #3f51b5" : "4px solid #7f91ff"
+    },
+    EmptyMessage: {
+      textAlign: "center",
+      color: "#c1c1c1",
+      marginTop: "calc((100vh - 65px) / 2)",
+      transform: "translateY(-50%)"
+    }
+  });
 
   // Classes Object
   const classes = useStyles();
@@ -150,10 +151,10 @@ const Categories = () => {
                   </TableCell>
                   <TableCell>
                     <div className={classes.categoryColorContainer} style={{
-                      border: `2px solid ${category.color}`
+                      border: `2px solid ${category.name === 'Not Categorized' ? (state.profile.theme === 'light' ? '#dedede' : '#303030') : category.color}`
                     }}>
                   <span className={classes.categoryColor}
-                        style={{backgroundColor: category.color}} />
+                        style={{backgroundColor: category.name === 'Not Categorized' ? (state.profile.theme === 'light' ? '#dedede' : '#303030') : category.color}} />
                     </div>
                   </TableCell>
                   {

@@ -25,65 +25,10 @@ import CheckCircleIcon from "@material-ui/icons/CheckCircle";
 // App Context
 import {AppContext} from "../contexts/AppContext";
 
-// Custom CSS Classes Style
-const useStyles = makeStyles(theme => ({
-    formControl: {
-      marginTop: 20,
-      marginBottom: 30,
-      display: "block"
-    },
-    field: {
-      marginTop: 10,
-      marginBottom: 10
-    },
-    select: {
-      marginTop: 20,
-      marginBottom: 20
-    },
-    alertContainer: {
-      width: "100%",
-      "& > * + *": {
-        marginTop: theme.spacing(2)
-      }
-    },
-    alert: {
-      maxWidth: "300px",
-      position: "absolute",
-      top: 75,
-      right: 20
-    },
-    avatarsContainer: {
-      paddingTop: 20,
-      display: "flex",
-      flexWrap: 'wrap'
-    },
-
-    avatarContainer: {
-      position: "relative"
-    },
-    avatar: {
-      marginRight: theme.spacing(2),
-      marginTop: theme.spacing(2),
-      cursor: "pointer"
-    },
-    activeAvatarIcon: {
-      position: "absolute",
-      bottom: -13,
-      left: -8,
-      zIndex: 3,
-      color: "#55cc48",
-      fontSize: 20
-    }
-  }
-));
-
 // Component
 const UserProfile = () => {
   // Get Notes & Its Methods
   const state = useContext(AppContext);
-
-  // Classes Object
-  const classes = useStyles();
 
   // Component Local State
   const [username, setUsername] = useState(state.profile.username);
@@ -93,6 +38,62 @@ const UserProfile = () => {
   const [openAlert, setOpenAlert] = useState(false);
   const [alertState, setAlertState] = useState("");
   const [alertMessage, setAlertMessage] = useState("");
+
+  // Custom CSS Classes Style
+  const useStyles = makeStyles(theme => ({
+      formControl: {
+        marginTop: 20,
+        marginBottom: 30,
+        display: "block"
+      },
+      field: {
+        marginTop: 10,
+        marginBottom: 10
+      },
+      select: {
+        marginTop: 20,
+        marginBottom: 20
+      },
+      alertContainer: {
+        width: "100%",
+        "& > * + *": {
+          marginTop: theme.spacing(2)
+        }
+      },
+      alert: {
+        maxWidth: "300px",
+        position: "absolute",
+        top: 75,
+        right: 20,
+        backgroundColor: state.profile.theme === 'dark' ? (alertState === 'success' ? '#495d49' : '#563a38') : ''
+      },
+      avatarsContainer: {
+        paddingTop: 20,
+        display: "flex",
+        flexWrap: 'wrap'
+      },
+
+      avatarContainer: {
+        position: "relative"
+      },
+      avatar: {
+        marginRight: theme.spacing(2),
+        marginTop: theme.spacing(2),
+        cursor: "pointer"
+      },
+      activeAvatarIcon: {
+        position: "absolute",
+        bottom: -13,
+        left: -8,
+        zIndex: 3,
+        color: "#55cc48",
+        fontSize: 20
+      }
+    }
+  ));
+
+  // Classes Object
+  const classes = useStyles();
 
   // List Of Avatars
   const avatars = [

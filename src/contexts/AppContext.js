@@ -86,7 +86,7 @@ class AppContextProvider extends React.Component {
           {
             id: "0",
             name: "Not Categorized",
-            color: "#dedede"
+            color: this.state.profile.theme === 'light' ? "#dedede" : "#323232"
           }
         ]
       });
