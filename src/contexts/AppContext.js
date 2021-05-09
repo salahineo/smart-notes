@@ -122,7 +122,10 @@ class AppContextProvider extends React.Component {
       // Append Link To Head Element
       document.documentElement.firstChild.appendChild(link);
     } else {
-      document.getElementById("SweetAlertDarkStyle").remove();
+      // Check To Add Alert Dark Theme
+      if (document.getElementById("SweetAlertDarkStyle") !== null) {
+        document.getElementById("SweetAlertDarkStyle").remove();
+      }
     }
     // Save To Localstorage
     setItem("SmartNotes", JSON.stringify(this.state));
