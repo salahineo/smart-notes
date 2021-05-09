@@ -11,6 +11,7 @@ import CreateCategory from "../pages/CreateCategory";
 import UpdateCategory from "../pages/UpdateCategory";
 import FavouriteNotes from "../pages/FavouriteNotes";
 import UserProfile from "../pages/UserProfile";
+import Admin from "../pages/Admin";
 
 // Components
 import Layout from "./Layout";
@@ -33,6 +34,7 @@ const App = () => {
             <Route path="/add-category" component={CreateCategory} />
             <Route path="/update-category" component={UpdateCategory} />
             <Route path="/profile" component={UserProfile} />
+            <Route path="/admin" component={Admin} />
           </Switch>
         </Layout>
       </AppContextProvider>

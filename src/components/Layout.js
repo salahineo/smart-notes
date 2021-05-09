@@ -26,6 +26,7 @@ import {
   AddBoxOutlined,
   AddCircleOutlineOutlined,
   AppsOutlined,
+  SettingsOutlined,
   StarOutline,
   SubjectOutlined
 } from "@material-ui/icons";
@@ -55,7 +56,7 @@ const useStyles = makeStyles((theme) => {
         zIndex: 999
       },
       active: {
-        backgroundColor: "#eaeaea"
+        backgroundColor: "#eaeaea",
       },
       ListItemIcon: {
         minWidth: 40
@@ -140,6 +141,12 @@ const Layout = ({children}) => {
       text: "Profile",
       icon: <AccountCircleOutlined color="primary" />,
       path: "/profile",
+      divider: false
+    },
+    {
+      text: "Admin",
+      icon: <SettingsOutlined color="primary" />,
+      path: "/admin",
       divider: false
     }
   ];

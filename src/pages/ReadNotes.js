@@ -91,7 +91,7 @@ const ReadNotes = () => {
         // Check If Empty Still True, To Show Empty Message
         empty === true ? (<Typography variant="h5"
                                             component="h2"
-                                            className={classes.EmptyMessage}>There are No Notes Yet. Add Some !!</Typography>) : null
+                                            className={classes.EmptyMessage}>There Are No Notes Yet. Add Some !!</Typography>) : null
       }
     </Container>
   );

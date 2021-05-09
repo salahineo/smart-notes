@@ -95,12 +95,41 @@ class AppContextProvider extends React.Component {
     setItem("SmartNotes", JSON.stringify(this.state));
   };
 
+  // Update All Notes Method
+  updateAllNotes = async (content) => {
+    // Update All Notes
+    await this.setState({
+      notes: content
+    });
+    // Save To Localstorage
+    setItem("SmartNotes", JSON.stringify(this.state));
+  };
+
   // Update Profile Method
   updateProfile = async (profile) => {
     // Add New Profile Data To State
     await this.setState({
       profile: profile
     });
+    // Save To Localstorage
+    setItem("SmartNotes", JSON.stringify(this.state));
+  };
+
+  // Export State (Data) Method
+  exportData = async () => await JSON.stringify(this.state);
+
+  // Import State (Data) Method
+  importData = async (state) => {
+    // Assign Data To State
+    await this.setState(JSON.parse(state));
+    // Save To Localstorage
+    setItem("SmartNotes", JSON.stringify(this.state));
+  };
+
+  // Restore Method
+  restore = async () => {
+    // Assign Initial State To State
+    await this.setState(this.initialState);
     // Save To Localstorage
     setItem("SmartNotes", JSON.stringify(this.state));
   };
@@ -115,7 +144,11 @@ class AppContextProvider extends React.Component {
         update: this.update,
         remove: this.remove,
         clearAll: this.clearAll,
-        updateProfile: this.updateProfile
+        updateProfile: this.updateProfile,
+        updateAllNotes: this.updateAllNotes,
+        exportData: this.exportData,
+        importData: this.importData,
+        restore: this.restore
       }}>
         {this.props.children}
       </AppContext.Provider>
