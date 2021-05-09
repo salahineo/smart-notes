@@ -5,6 +5,9 @@ import {Link, useHistory, useLocation} from "react-router-dom";
 // App Context
 import {AppContext} from "../contexts/AppContext";
 
+// Footer
+import Footer from "./Footer";
+
 // Material UI Components
 import {makeStyles} from "@material-ui/core/styles";
 import {
@@ -12,6 +15,8 @@ import {
   Avatar,
   Divider,
   Drawer,
+  Hidden,
+  IconButton,
   List,
   ListItem,
   ListItemIcon,
@@ -26,6 +31,7 @@ import {
   AddBoxOutlined,
   AddCircleOutlineOutlined,
   AppsOutlined,
+  Menu,
   SettingsOutlined,
   StarOutline,
   SubjectOutlined
@@ -43,12 +49,19 @@ const useStyles = makeStyles((theme) => {
       },
       content: {
         backgroundColor: "#f9f9f9",
-        width: "100%",
         padding: 15,
-        minHeight: "calc(100vh - 30px)"
+        minHeight: "calc(100vh - 30px)",
+        flexGrow: 1,
+        position: "relative",
+        "& > div:nth-of-type(2)": {
+          paddingBottom: 60
+        }
       },
       drawer: {
-        width: drawerWidth
+        [theme.breakpoints.up("sm")]: {
+          width: drawerWidth,
+          flexShrink: 0
+        }
       },
       drawerPaper: {
         width: drawerWidth,
@@ -56,7 +69,13 @@ const useStyles = makeStyles((theme) => {
         zIndex: 999
       },
       active: {
-        backgroundColor: "#eaeaea",
+        backgroundColor: "#eaeaea"
+      },
+      menuButton: {
+        marginRight: theme.spacing(2),
+        [theme.breakpoints.up("sm")]: {
+          display: "none"
+        }
       },
       ListItemIcon: {
         minWidth: 40
@@ -85,16 +104,34 @@ const useStyles = makeStyles((theme) => {
       toolBar: theme.mixins.toolbar,
       avatar: {
         marginLeft: theme.spacing(2)
+
+      },
+      appbarAvatar: {
+        marginLeft: theme.spacing(2),
+        [theme.breakpoints.down("sm")]: {
+          display: "none"
+        }
+      },
+      appbarUsername: {
+        [theme.breakpoints.down("sm")]: {
+          display: "none"
+        }
       },
       divider: {
         margin: "8px auto"
+      },
+      drawerUser: {
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        marginTop: 30
       }
     }
   );
 });
 
 // Component
-const Layout = ({children}) => {
+const Layout = (props) => {
   // Get State
   const state = useContext(AppContext);
 
@@ -104,6 +141,18 @@ const Layout = ({children}) => {
 
   // Classes Constant
   const classes = useStyles();
+
+  // Responsive State
+  const {window} = props;
+  const [mobileOpen, setMobileOpen] = React.useState(false);
+
+  // Toggle Drawer In Responsive Method
+  const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen);
+  };
+
+  // Check Container
+  const container = window !== undefined ? () => window().document.body : undefined;
 
   // Drawer (Sidebar) Links
   const menuItems = [
@@ -156,6 +205,15 @@ const Layout = ({children}) => {
     <div className={classes.root}>
       <AppBar className={classes.AppBar} elevation={0}>
         <Toolbar>
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            edge="start"
+            onClick={handleDrawerToggle}
+            className={classes.menuButton}
+          >
+            <Menu />
+          </IconButton>
           <div className={classes.logo}>
             <Link to="/" className={classes.logoLink}>
               <Avatar src="/images/notes.png" className={classes.logoAvatar} />
@@ -164,45 +222,90 @@ const Layout = ({children}) => {
               </Typography>
             </Link>
           </div>
-          <Typography>
-            {state.profile.username}
-          </Typography>
-          <Avatar src={state.profile.avatar} className={classes.avatar} />
+          <Typography component="span" className={classes.appbarUsername}>{state.profile.username}</Typography>
+          <Avatar src={state.profile.avatar} className={classes.appbarAvatar} />
         </Toolbar>
       </AppBar>
+      <nav className={classes.drawer}>
+        <Hidden smUp implementation="css">
+          <Drawer
+            container={container}
+            variant="temporary"
+            anchor="left"
+            classes={{paper: classes.drawerPaper}}
+            open={mobileOpen}
+            onClose={handleDrawerToggle}
+            ModalProps={{
+              keepMounted: true
+            }}
+          >
+            <List>
+              {
+                menuItems.map((item, index) => {
+                  return (
+                    <div key={item.text}>
+                      <ListItem
+                        button
+                        onClick={() => {
+                          history.push(item.path);
+                          handleDrawerToggle();
+                        }}
+                        className={location.pathname === item.path ? classes.active : null}
+                      >
+                        <ListItemIcon className={classes.ListItemIcon}>{item.icon}</ListItemIcon>
+                        <ListItemText primary={item.text} />
+                      </ListItem>
+                      {
+                        item.divider === true ? (<Divider className={classes.divider} />) : null
+                      }
+                    </div>
+                  );
+                })
+              })
+            </List>
+            <Divider />
+            <div className={classes.drawerUser}>
+              <Typography component="span" color="textSecondary">{state.profile.username}</Typography>
+              <Avatar src={state.profile.avatar} className={classes.avatar} />
+            </div>
+          </Drawer>
+        </Hidden>
 
-      <Drawer
-        className={classes.drawer}
-        variant="permanent"
-        anchor="left"
-        classes={{paper: classes.drawerPaper}}
-      >
-        <List>
-          {
-            menuItems.map((item, index) => {
-              return (
-                <div key={item.text}>
-                  <ListItem
-                    button
-                    onClick={() => history.push(item.path)}
-                    className={location.pathname === item.path ? classes.active : null}
-                  >
-                    <ListItemIcon className={classes.ListItemIcon}>{item.icon}</ListItemIcon>
-                    <ListItemText primary={item.text} />
-                  </ListItem>
-                  {
-                    item.divider === true ? (<Divider className={classes.divider} />) : null
-                  }
-                </div>
-              );
-            })
-          }
-        </List>
-      </Drawer>
+        <Hidden xsDown implementation="css">
+          <Drawer
+            classes={{paper: classes.drawerPaper}}
+            variant="permanent"
+            open
+          >
+            <List>
+              {
+                menuItems.map((item, index) => {
+                  return (
+                    <div key={item.text}>
+                      <ListItem
+                        button
+                        onClick={() => history.push(item.path)}
+                        className={location.pathname === item.path ? classes.active : null}
+                      >
+                        <ListItemIcon className={classes.ListItemIcon}>{item.icon}</ListItemIcon>
+                        <ListItemText primary={item.text} />
+                      </ListItem>
+                      {
+                        item.divider === true ? (<Divider className={classes.divider} />) : null
+                      }
+                    </div>
+                  );
+                })
+              })
+            </List>
+          </Drawer>
+        </Hidden>
+      </nav>
 
       <div className={classes.content}>
         <div className={classes.toolBar} />
-        {children}
+        {props.children}
+        <Footer />
       </div>
     </div>
   );

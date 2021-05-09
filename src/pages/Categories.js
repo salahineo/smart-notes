@@ -1,5 +1,5 @@
 // Libraries
-import React, {useContext, useState} from "react";
+import React, {useContext} from "react";
 import {useHistory} from "react-router-dom";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
@@ -80,9 +80,6 @@ const Categories = () => {
 
   // Classes Object
   const classes = useStyles();
-
-  // Component Local State
-  const [empty, setEmpty] = useState(true);
 
   // History Hooks
   const history = useHistory();

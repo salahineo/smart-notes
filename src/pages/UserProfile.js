@@ -54,7 +54,8 @@ const useStyles = makeStyles(theme => ({
     },
     avatarsContainer: {
       paddingTop: 20,
-      display: "flex"
+      display: "flex",
+      flexWrap: 'wrap'
     },
 
     avatarContainer: {
@@ -62,6 +63,7 @@ const useStyles = makeStyles(theme => ({
     },
     avatar: {
       marginRight: theme.spacing(2),
+      marginTop: theme.spacing(2),
       cursor: "pointer"
     },
     activeAvatarIcon: {
@@ -100,8 +102,33 @@ const UserProfile = () => {
     },
     {
       id: 2,
-      src: "/images/notes.png"
-    }
+      src: "/images/mafia.jpg"
+    },
+    {
+      id: 3,
+      src: "/images/boy_1.jpg"
+    },
+    {
+      id: 4,
+      src: "/images/boy_2.jpg"
+    },
+    {
+      id: 5,
+      src: "/images/boy_3.jpg"
+    },
+    {
+      id: 6,
+      src: "/images/girl_1.jpg"
+    },
+    {
+      id: 7,
+      src: "/images/girl_2.jpg"
+    },
+    {
+      id: 8,
+      src: "/images/girl_3.jpg"
+    },
+
   ];
 
   // Handle Submit Form Method
