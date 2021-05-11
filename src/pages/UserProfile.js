@@ -99,7 +99,7 @@ const UserProfile = () => {
   const avatars = [
     {
       id: 1,
-      src: "images/guest.jpg"
+      src: `${process.env.PUBLIC_URL}/images/guest.jpg`
     },
     {
       id: 2,
