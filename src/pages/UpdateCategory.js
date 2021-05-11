@@ -23,6 +23,14 @@ const UpdateCategory = () => {
   // Location Hook
   const location = useLocation();
 
+  // Component Local State
+  const [color, setColor] = useState(currentCategory !== null ? currentCategory.color : "#fd4f4f");
+  const [category, setCategory] = useState(currentCategory !== null ? currentCategory.name : "");
+  const [categoryErrorState, setCategoryErrorState] = useState(false);
+  const [openAlert, setOpenAlert] = useState(false);
+  const [alertState, setAlertState] = useState("");
+  const [alertMessage, setAlertMessage] = useState("");
+
   // Custom CSS Classes Style
   const useStyles = makeStyles(theme => ({
       field: {
@@ -78,14 +86,6 @@ const UpdateCategory = () => {
   state.categories.map(category => {
     return category.id === location.pathname.split("/", 3)[2] ? (currentCategory = category) : null;
   });
-
-  // Component Local State
-  const [color, setColor] = useState(currentCategory !== null ? currentCategory.color : "#fd4f4f");
-  const [category, setCategory] = useState(currentCategory !== null ? currentCategory.name : "");
-  const [categoryErrorState, setCategoryErrorState] = useState(false);
-  const [openAlert, setOpenAlert] = useState(false);
-  const [alertState, setAlertState] = useState("");
-  const [alertMessage, setAlertMessage] = useState("");
 
  if(currentCategory !== null ) {
    // Handle Submit Form Method

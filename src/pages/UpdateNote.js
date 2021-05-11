@@ -33,6 +33,16 @@ const UpdateNote = () => {
   // Get State
   const state = useContext(AppContext);
 
+  // Component Local State
+  const [title, setTitle] = useState(currentNote !== null ? currentNote.title : "");
+  const [body, setBody] = useState(currentNote !== null ? currentNote.body : "");
+  const [titleErrorState, setTitleErrorState] = useState(false);
+  const [bodyErrorState, setBodyErrorState] = useState(false);
+  const [category, setCategory] = useState(currentNote !== null ? currentNote.category : "");
+  const [openAlert, setOpenAlert] = useState(false);
+  const [alertState, setAlertState] = useState("");
+  const [alertMessage, setAlertMessage] = useState("");
+
   // Custom CSS Classes Style
   const useStyles = makeStyles(theme => ({
       field: {
@@ -74,16 +84,6 @@ const UpdateNote = () => {
 
   // Classes Object
   const classes = useStyles();
-
-  // Component Local State
-  const [title, setTitle] = useState(currentNote !== null ? currentNote.title : "");
-  const [body, setBody] = useState(currentNote !== null ? currentNote.body : "");
-  const [titleErrorState, setTitleErrorState] = useState(false);
-  const [bodyErrorState, setBodyErrorState] = useState(false);
-  const [category, setCategory] = useState(currentNote !== null ? currentNote.category : "");
-  const [openAlert, setOpenAlert] = useState(false);
-  const [alertState, setAlertState] = useState("");
-  const [alertMessage, setAlertMessage] = useState("");
 
 
   if (currentNote !== null) {
