@@ -1,6 +1,6 @@
 // Libraries
 import React from "react";
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import {HashRouter as Router, Route, Switch} from "react-router-dom";
 
 // Pages
 import ReadNotes from "../pages/ReadNotes";
@@ -22,7 +22,7 @@ import AppContextProvider from "../contexts/AppContext";
 // Component
 const App = () => {
   return (
-    <Router basename='/smart-notes'>
+    <Router>
       <AppContextProvider>
         <Layout>
           <Switch>
