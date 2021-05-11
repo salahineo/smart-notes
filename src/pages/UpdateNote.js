@@ -54,7 +54,8 @@ const UpdateNote = () => {
         maxWidth: "300px",
         position: "absolute",
         top: 75,
-        right: 20
+        right: 20,
+        backgroundColor: state.profile.theme === 'dark' ? (alertState === 'success' ? '#495d49' : '#563a38') : ''
       },
       EmptyMessage: {
         textAlign: "center",

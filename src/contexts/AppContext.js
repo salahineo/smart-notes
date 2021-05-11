@@ -27,6 +27,26 @@ class AppContextProvider extends React.Component {
   // App State
   state = getItem("SmartNotes") === null ? this.initialState : JSON.parse(getItem("SmartNotes"));
 
+  // After Component Loaded
+  componentDidMount() {
+    // Check To Add Alert Dark Theme
+    if (this.state.profile.theme === "dark") {
+      // Create Link
+      let link = document.createElement("link");
+      // Add Link Attributes
+      link.setAttribute("id", "SweetAlertDarkStyle");
+      link.setAttribute("rel", "stylesheet");
+      link.setAttribute("href", "dark.min.css");
+      // Append Link To Head Element
+      document.documentElement.firstChild.appendChild(link);
+    } else {
+      // Check To Remove Alert Dark Theme
+      if (document.getElementById("SweetAlertDarkStyle") !== null) {
+        document.getElementById("SweetAlertDarkStyle").remove();
+      }
+    }
+  }
+
   // Add Method
   add = async (property, content) => {
     // Add Property Value To State
@@ -122,7 +142,7 @@ class AppContextProvider extends React.Component {
       // Append Link To Head Element
       document.documentElement.firstChild.appendChild(link);
     } else {
-      // Check To Add Alert Dark Theme
+      // Check To Remove Alert Dark Theme
       if (document.getElementById("SweetAlertDarkStyle") !== null) {
         document.getElementById("SweetAlertDarkStyle").remove();
       }
@@ -146,7 +166,7 @@ class AppContextProvider extends React.Component {
   restore = async () => {
     // Assign Initial State To State
     await this.setState(this.initialState);
-    // Check To Add Alert Dark Theme
+    // Check To Remove Alert Dark Theme
     if (document.getElementById("SweetAlertDarkStyle") !== null) {
       document.getElementById("SweetAlertDarkStyle").remove();
     }
