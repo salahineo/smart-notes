@@ -119,9 +119,6 @@ const UpdateNote = () => {
           category: category,
           favourite: currentNote.favourite
         });
-        // Empty Fields
-        setBody("");
-        setTitle("");
       }
     };
 

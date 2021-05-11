@@ -125,8 +125,6 @@ const UpdateCategory = () => {
          name: category,
          color: color
        });
-       // Empty Fields
-       setCategory("");
      }
    };
 
