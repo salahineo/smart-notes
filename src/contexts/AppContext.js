@@ -10,7 +10,7 @@ class AppContextProvider extends React.Component {
   // Initial App State
   initialState = {
     profile: {
-      avatar: "images/guest.jpg",
+      avatar: `${process.env.PUBLIC_URL}/images/guest.jpg`,
       username: "Guest",
       theme: "light"
     },

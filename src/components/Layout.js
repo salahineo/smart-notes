@@ -237,7 +237,7 @@ const Layout = (props) => {
             </IconButton>
             <div className={classes.logo}>
               <Link to="/" className={classes.logoLink}>
-                <Avatar src="images/notes.png" className={classes.logoAvatar} />
+                <Avatar src={process.env.PUBLIC_URL + "/images/notes.png"} className={classes.logoAvatar} />
                 <Typography variant="h5" component="span" className={classes.logoTitle}>
                   Smart Notes
                 </Typography>

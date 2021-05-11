@@ -65,12 +65,12 @@ const UserProfile = () => {
         position: "absolute",
         top: 75,
         right: 20,
-        backgroundColor: state.profile.theme === 'dark' ? (alertState === 'success' ? '#495d49' : '#563a38') : ''
+        backgroundColor: state.profile.theme === "dark" ? (alertState === "success" ? "#495d49" : "#563a38") : ""
       },
       avatarsContainer: {
         paddingTop: 20,
         display: "flex",
-        flexWrap: 'wrap'
+        flexWrap: "wrap"
       },
 
       avatarContainer: {
@@ -103,32 +103,32 @@ const UserProfile = () => {
     },
     {
       id: 2,
-      src: "images/mafia.jpg"
+      src: `${process.env.PUBLIC_URL}/images/mafia.jpg`
     },
     {
       id: 3,
-      src: "images/boy_1.jpg"
+      src: `${process.env.PUBLIC_URL}/images/boy_1.jpg`
     },
     {
       id: 4,
-      src: "images/boy_2.jpg"
+      src: `${process.env.PUBLIC_URL}/images/boy_2.jpg`
     },
     {
       id: 5,
-      src: "images/boy_3.jpg"
+      src: `${process.env.PUBLIC_URL}/images/boy_3.jpg`
     },
     {
       id: 6,
-      src: "images/girl_1.jpg"
+      src: `${process.env.PUBLIC_URL}/images/girl_1.jpg`
     },
     {
       id: 7,
-      src: "images/girl_2.jpg"
+      src: `${process.env.PUBLIC_URL}/images/girl_2.jpg`
     },
     {
       id: 8,
-      src: "images/girl_3.jpg"
-    },
+      src: `${process.env.PUBLIC_URL}/images/girl_3.jpg`
+    }
 
   ];
 
