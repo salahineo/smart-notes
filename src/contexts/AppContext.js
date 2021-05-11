@@ -36,7 +36,7 @@ class AppContextProvider extends React.Component {
       // Add Link Attributes
       link.setAttribute("id", "SweetAlertDarkStyle");
       link.setAttribute("rel", "stylesheet");
-      link.setAttribute("href", "dark.min.css");
+      link.setAttribute("href", `${process.env.PUBLIC_URL}/dark.min.css`);
       // Append Link To Head Element
       document.documentElement.firstChild.appendChild(link);
     } else {
@@ -138,7 +138,7 @@ class AppContextProvider extends React.Component {
       // Add Link Attributes
       link.setAttribute("id", "SweetAlertDarkStyle");
       link.setAttribute("rel", "stylesheet");
-      link.setAttribute("href", "dark.min.css");
+      link.setAttribute("href", `${process.env.PUBLIC_URL}/dark.min.css`);
       // Append Link To Head Element
       document.documentElement.firstChild.appendChild(link);
     } else {
