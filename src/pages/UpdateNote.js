@@ -33,6 +33,12 @@ const UpdateNote = () => {
   // Get State
   const state = useContext(AppContext);
 
+  // Get Note Attributes With ID From URL
+  let currentNote = null;
+  state.notes.map(note => {
+    return note.id === location.pathname.split("/", 3)[2] ? (currentNote = note) : null;
+  });
+
   // Component Local State
   const [title, setTitle] = useState(currentNote !== null ? currentNote.title : "");
   const [body, setBody] = useState(currentNote !== null ? currentNote.body : "");
@@ -76,15 +82,8 @@ const UpdateNote = () => {
     }
   ));
 
-  // Get Note Attributes With ID From URL
-  let currentNote = null;
-  state.notes.map(note => {
-    return note.id === location.pathname.split("/", 3)[2] ? (currentNote = note) : null;
-  });
-
   // Classes Object
   const classes = useStyles();
-
 
   if (currentNote !== null) {
     // Handle Submit Form Method

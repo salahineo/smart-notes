@@ -23,6 +23,12 @@ const UpdateCategory = () => {
   // Location Hook
   const location = useLocation();
 
+  // Get Category Attributes With ID From URL
+  let currentCategory = null;
+  state.categories.map(category => {
+    return category.id === location.pathname.split("/", 3)[2] ? (currentCategory = category) : null;
+  });
+
   // Component Local State
   const [color, setColor] = useState(currentCategory !== null ? currentCategory.color : "#fd4f4f");
   const [category, setCategory] = useState(currentCategory !== null ? currentCategory.name : "");
@@ -80,12 +86,6 @@ const UpdateCategory = () => {
 
   // Classes Object
   const classes = useStyles();
-
-  // Get Category Attributes With ID From URL
-  let currentCategory = null;
-  state.categories.map(category => {
-    return category.id === location.pathname.split("/", 3)[2] ? (currentCategory = category) : null;
-  });
 
  if(currentCategory !== null ) {
    // Handle Submit Form Method
