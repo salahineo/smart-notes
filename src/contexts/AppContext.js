@@ -30,7 +30,7 @@ class AppContextProvider extends React.Component {
   // After Component Loaded
   componentDidMount() {
     // Check To Add Alert Dark Theme
-    if (this.state.profile.theme === "dark") {
+    if (this.state.profile.theme === "dark" && document.getElementById("SweetAlertDarkStyle") === null) {
       // Create Link
       let link = document.createElement("link");
       // Add Link Attributes

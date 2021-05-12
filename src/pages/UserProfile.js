@@ -150,7 +150,7 @@ const UserProfile = () => {
       // Save Profile To State
       state.updateProfile({
         avatar: avatar,
-        username: username,
+        username: username.trim(),
         theme: theme
       });
     }

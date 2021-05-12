@@ -90,7 +90,7 @@ const CreateCategory = () => {
       // Save Note To State
       state.add("categories", {
         id: uuidv4(),
-        name: category,
+        name: category.trim(),
         color: color
       });
       // Empty Fields

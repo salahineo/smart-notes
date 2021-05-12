@@ -97,8 +97,8 @@ const CreateNote = () => {
       // Save Note To State
       state.add("notes", {
         id: uuidv4(),
-        title: title,
-        body: body,
+        title: title.trim(),
+        body: body.trim(),
         category: category,
         favourite: false
       });
