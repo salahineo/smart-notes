@@ -60,9 +60,9 @@ Contributions are welcome and greatly appreciated! If you'd like to contribute t
 ```bash
 git clone https://github.com/your-username/repo-name.git
 ```
-- Create a new branch for your contribution from the `production` branch
+- Create a new branch for your contribution
 ```bash
-git checkout -b feature/your-feature-name production
+git checkout -b feature/your-feature-name
 ```
 - Make your changes and ensure your code is clean and properly formatted.
 - Commit your changes
